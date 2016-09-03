@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Bank Comparison</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel='shortcut icon' href='images/favicon2.ico' type='image/x-icon'/ >
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<style>
+		input[type=number]::-webkit-inner-spin-button, 
+		input[type=number]::-webkit-outer-spin-button { 
+	    -webkit-appearance: none;
+	    -moz-appearance: none;
+	    appearance: none;
+	    margin: 0; 
+		}
+	</style>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header class="major">
+					<h1>Bank Profit Calc</h1>
+					<p>Use this version to compare Bank Profits</p>
+				</header>
+				<div class="container">
+					<ul class="actions">
+						<li><a href="#three" class="button special scrolly">Compare Banks!</a></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="main special">
+				<div class="container">
+					<div class="content">
+						<header class="major">
+							<h2>Bank Account Profits</h2>
+						</header>
+						<p>Type in your sales to see your profit for this week, and hit "Submit" to send me an email reminder!</p>
+						
+						<p><input type="number" id="input2" placeholder="Type Numbers Here..." onkeyup="func2(event)" /></p>
+						<select id="item" style="height:30px;" onchange="selectchange()">
+						    <option disabled selected value> -- select your bank -- </option>
+						    <option value="4">TD Bank</option>
+						    <option value="2.5">Regions Bank</option>
+						    <option value="2.5">US Bank</option>
+						    <option value="2">Bank of America</option>
+						    <option value="2">Wells Fargo</option>
+						</select>
+						<p></p>
+						<a class="button special scrolly" onclick="add2()">Add More</a>
+						<a class="button special scrolly" onclick="clear2()">Clear Data</a>
+						<a class="button special scrolly" onclick="submit2()">Submit!</a>
+						<h1><br><br><br><label id="showtext2" value="123"></label></h1>
+<br><br><br><br><br><br><br><br><br><br><br>
+					</div>
+					<!--a href="#three" class="goto-next scrolly">Next</a-->
+				</div>
+			</section>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script>
+			// variables for optional 1
+			var string1number="SALES: ";
+			var string1total="<br><br>  PROFIT: $";
+			var val1=0;
+			var tot1=0;
+			parseFloat(Math.round(tot1 * 100) / 100).toFixed(2);
+			var totalstring=parseFloat(Math.round(tot1 * 100) / 100).toFixed(2);
+			
+
+
+			// methods for optional 1
+			function func(e)
+			{
+				
+				
+
+				document.getElementById('showtext').innerHTML="";
+				// alert(document.getElementById('input1').value);
+				var total=tot1;
+				
+				val1=parseInt(document.getElementById('input1').value);
+				total=parseInt(total+val1);
+				if(document.getElementById('input1').value!=""){
+					var string1number1= string1number+val1;
+					var string1total1=string1total+parseFloat(Math.round(total * 6) / 100).toFixed(2);
+					// Number(total).toFixed(2);
+					
+					document.getElementById('showtext').innerHTML = string1number1+string1total1;
+					totalstring2=string1number1+string1total1;
+					totalstring=parseFloat(Math.round(totalstring2 * 100) / 100).toFixed(2);
+				}
+				else{
+					var string1number1=string1number.substring(0, string1number.length-1);
+					var string1total1=string1total+tot1;
+					parseFloat(Math.round(string1total1 * 100) / 100).toFixed(2);
+					document.getElementById('showtext').innerHTML = string1number1+string1total1;
+					totalstring2=string1number1+string1total1;
+					totalstring=parseFloat(Math.round(totalstring2 * 100) / 100).toFixed(2);
+				}
+
+				// process of enter event
+				e.which = e.which || e.keyCode;
+			    if(e.which == 13) {
+			        window.add1();
+			    }
+				
+				
+			}
+			function add1(){
+
+				if (document.getElementById('input1').value!="" ){
+					string1number=string1number+val1+", "
+					tot1=parseInt(tot1+val1);
+					document.getElementById('input1').value=""
+				}
+				
+			}
+			function clear1()
+			{
+				val1=0;
+				tot1=0;
+				string1number="SALES: ";
+				string1total="<br><br>  PROFIT: $";
+				document.getElementById('showtext').innerHTML=""
+				document.getElementById('input1').value=""
+			}
+			function submit1(){
+
+				// totalstring="Option #1. "+totalstring;
+				// 	var link = "mailto:test333@mailinator.com"
+		  //            + "?cc=myCCaddress@example.com"
+		  //            + "&subject=" + escape("Option#1")
+		  //            + "&body=" + escape(totalstring)
+   			// 				 ;
+
+	  	 	// 		 window.location.href = link;
+	  	 		
+	  	 		alert("Email has been sent to me! I'll verify these numbers and send your profits to you by the end of the week! Text or Facebook me anytime also")
+	  	 		
+			}
+
+			// variables for optional 2
+			var string2number="SALES: ";
+			var string2total="<br><br>  PROFIT: $";
+			var val2=0;
+			var tot2=0;
+			parseFloat(Math.round(tot2 * 100) / 100).toFixed(2);
+			var totalstring_2=parseFloat(Math.round(totalstring_2 * 100) / 100).toFixed(2);
+			var index=2.5
+			var static="";
+			// methods for optional 2
+			function func2(e)
+			{
+				document.getElementById('showtext2').innerHTML="";
+				// alert(document.getElementById('input1').value);
+				var total=tot2;
+				
+				val2=parseInt(document.getElementById('input2').value);
+				total=parseInt(total+val2);
+				if(document.getElementById('input2').value!=""){
+					var string2number1= string2number+val2;
+					var string2total1=string2total+parseFloat(Math.round(total * index) / 100).toFixed(2);;
+					// Number(total).toFixed(2);
+					
+					document.getElementById('showtext2').innerHTML = string2number1+string2total1;
+					static=string2number1+string2total1;
+					totalstring2=string2number1+string2total1;
+					totalstring_2=parseFloat(Math.round(totalstring2 * 100) / 100).toFixed(2);
+				}
+				else{
+					var string2number1=string2number.substring(0, string2number.length-1);
+					var string2total1=string2total+tot2;
+					parseFloat(Math.round(string2total1 * 100) / 100).toFixed(2);
+					document.getElementById('showtext').innerHTML = string2number1+string2total1;
+					totalstring2=string2number1+string2total1;
+					totalstring_2=parseFloat(Math.round(totalstring2 * 100) / 100).toFixed(2);
+				}
+
+				// process of enter event
+				e.which = e.which || e.keyCode;
+			    if(e.which == 13) {
+			        window.add2();
+			    }
+
+				
+				
+			}
+			function add2(){
+
+				if (document.getElementById('input2').value!="" ){
+					string2number=string2number+val2+", "
+					tot2=parseInt(tot2+val2);
+					document.getElementById('input2').value=""
+				}
+				
+			}
+			function clear2()
+			{
+				val2=0;
+				tot2=0;
+				string2number="SALES: ";
+				string2total="<br><br>  PROFIT: $";
+				document.getElementById('showtext2').innerHTML=""
+				document.getElementById('input2').value=""
+				document.getElementById('item').value=""
+				index=2.5
+			}
+			function submit2(){
+
+				// totalstring_2="Option #2. "+totalstring_2;
+				// 	var link = "mailto:test333@mailinator.com"
+				  //            + "?cc=myCCaddress@example.com"
+				  //            + "&subject=" + escape("Option#2")
+				  //            + "&body=" + escape(totalstring_2)
+			   	// 		 ;
+
+			    // window.location.href = link;
+			    alert("Email sent! Profits will arrive soon!");
+			    
+			}
+			function selectchange(){
+				if (document.getElementById("item").value=="") {
+					index=2.5
+					
+					
+				}
+				else{
+					index=parseFloat(document.getElementById("item").value);
+					// if (document.getElementById('input2').value=="")
+					// {
+
+					// 	document.getElementById('showtext2').innerHTML="";
+					// }
+					// else{
+
+					if(document.getElementById('input2').value==""){
+						alert("input numbers")
+						document.getElementById('showtext2').innerHTML=static;
+					}
+					else{
+
+
+					document.getElementById('showtext2').innerHTML="";
+					// alert(document.getElementById('input1').value);
+					var total=tot2;
+					
+					val2=parseInt(document.getElementById('input2').value);
+					total=parseInt(total+val2);
+					var string2number1= string2number+val2;
+					var string2total1=string2total+parseFloat(Math.round(total * index) / 100).toFixed(2);;
+					// Number(total).toFixed(2);
+					
+					document.getElementById('showtext2').innerHTML = string2number1+string2total1;
+					totalstring2=string2number1+string2total1;
+					totalstring_2=parseFloat(Math.round(totalstring2 * 100) / 100).toFixed(2);
+					}
+				//	}
+				}
+
+
+
+				
+
+			}
+			</script>
+	</body>
+</html>
